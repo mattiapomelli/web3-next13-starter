@@ -1,4 +1,6 @@
 import "./globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
+
 import { Inter } from "next/font/google";
 
 import { Container } from "@/components/layout/container";
