@@ -7,7 +7,7 @@ interface AddressAvatarProps {
   className?: string;
 }
 
-export const AddressAvatar = ({ address, size = 2.5, className }: AddressAvatarProps) => {
+export const AddressAvatar = ({ address, size = 2.4, className }: AddressAvatarProps) => {
   return (
     <Blockies
       data-testid="avatar"
