@@ -5,7 +5,8 @@ import { Container } from "@/components/layout/container";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/toast";
-import { ThemeProvider } from "@/providers/theme-provider";
+
+import { Providers } from "./providers";
 
 import type { Metadata } from "next";
 
@@ -47,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>
+        <Providers>
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1 pb-20">
@@ -56,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </div>
           <Toaster />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
