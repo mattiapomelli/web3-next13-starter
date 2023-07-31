@@ -38,13 +38,7 @@
       }
     },
     {
-      "files": ["./src/**/*.stories.tsx"],
-      "rules": {
-        "import/no-default-export": "off"
-      }
-    },
-    {
-      "files": ["./src/app/**/*.ts", "./src/app/**/*.tsx"],
+      "files": ["./src/app/**/*.ts", "./src/app/**/*.tsx", "./src/**/*.stories.tsx"],
       "rules": {
         "import/no-default-export": "off"
       }
