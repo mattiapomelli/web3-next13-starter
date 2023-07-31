@@ -26,6 +26,7 @@ const config = createConfig({
   connectors,
   publicClient,
   webSocketPublicClient,
+  persister: null,
 });
 
 export function Providers({ children, ...props }: ThemeProviderProps) {
