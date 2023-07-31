@@ -1,6 +1,8 @@
 "use client";
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
+import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
@@ -32,9 +34,13 @@ const config = createConfig({
 export function Providers({ children, ...props }: ThemeProviderProps) {
   return (
     <WagmiConfig config={config}>
-      <RainbowKitProvider chains={chains}>
-        <ThemeProvider {...props}>{children}</ThemeProvider>
-      </RainbowKitProvider>
+      <SessionProvider>
+        <RainbowKitSiweNextAuthProvider>
+          <RainbowKitProvider chains={chains}>
+            <ThemeProvider {...props}>{children}</ThemeProvider>
+          </RainbowKitProvider>
+        </RainbowKitSiweNextAuthProvider>
+      </SessionProvider>
     </WagmiConfig>
   );
 }
