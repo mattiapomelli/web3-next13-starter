@@ -5,8 +5,8 @@ export const Footer = () => {
     <footer>
       <Container>
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-base-300/50 py-6 text-sm">
-          <div className="shrink-0 md:flex-1">© 2023, My App</div>
-          <p className="order-1 basis-full text-center md:order-none md:basis-auto">My App</p>
+          <div className="shrink-0 md:flex-1">© 2023, My dApp</div>
+          <p className="order-1 basis-full text-center md:order-none md:basis-auto">My dApp</p>
           <div className="flex items-center justify-end md:flex-1">Contact</div>
         </div>
       </Container>
