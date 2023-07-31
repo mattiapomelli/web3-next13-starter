@@ -1,7 +1,6 @@
 import { hardhat, polygon, polygonMumbai } from "wagmi/chains";
 
 import { storageAbi } from "@/abis/storage";
-import { CHAIN } from "@/constants/chains";
 
 export const STORAGE_ADDRESS: Record<number, `0x${string}`> = {
   [hardhat.id]: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
@@ -9,7 +8,7 @@ export const STORAGE_ADDRESS: Record<number, `0x${string}`> = {
   [polygon.id]: "0x",
 };
 
-export const STORAGE_CONFIG = {
-  address: STORAGE_ADDRESS[CHAIN.id],
+export const getStorageConfig = (chainId: number) => ({
+  address: STORAGE_ADDRESS[chainId],
   abi: storageAbi,
-};
+});

@@ -7,13 +7,13 @@ import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
-import { CHAIN } from "@/constants/chains";
+import { CHAINS } from "@/constants/chains";
 import { env } from "@/env.mjs";
 
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [CHAIN],
-  [alchemyProvider({ apiKey: env.NEXT_PUBLIC_ALCHEMY_API_KEY }), publicProvider()],
-);
+const { chains, publicClient, webSocketPublicClient } = configureChains(CHAINS, [
+  alchemyProvider({ apiKey: env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
+  publicProvider(),
+]);
 
 const { connectors } = getDefaultWallets({
   appName: "My dApp",
