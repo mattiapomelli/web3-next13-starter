@@ -3,14 +3,14 @@
 import { ThemeProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { polygon } from "wagmi/chains";
+import { polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
 import { env } from "@/env.mjs";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [polygon],
+  [polygonMumbai],
   [alchemyProvider({ apiKey: env.NEXT_PUBLIC_ALCHEMY_API_KEY }), publicProvider()],
 );
 
