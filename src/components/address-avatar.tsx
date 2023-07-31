@@ -1,32 +1,20 @@
-// import jazzicon from "@metamask/jazzicon";
-// import { clsx } from "clsx";
-// import { useLayoutEffect, useMemo, useRef } from "react";
+import { clsx } from "clsx";
+import Blockies from "react-blockies";
 
-// interface AddressAvatarProps {
-//   address: `0x${string}`;
-//   size?: number;
-//   className?: string;
-// }
+interface AddressAvatarProps {
+  address: `0x${string}`;
+  size?: number;
+  className?: string;
+}
 
-// export const AddressAvatar = ({ address, size = 16, className }: AddressAvatarProps) => {
-//   const iconRef = useRef<HTMLSpanElement>(null);
-//   const icon = useMemo(
-//     () => (address ? jazzicon(size, parseInt(address.slice(2, 10), 16)) : null),
-//     [address, size],
-//   );
-
-//   useLayoutEffect(() => {
-//     const current = iconRef.current;
-//     if (icon) {
-//       current?.appendChild(icon);
-//     }
-
-//     return () => {
-//       if (icon) {
-//         current?.removeChild(icon);
-//       }
-//     };
-//   }, [icon, iconRef]);
-
-//   return <span ref={iconRef} className={clsx("inline-flex", className)} />;
-// };
+export const AddressAvatar = ({ address, size = 2.5, className }: AddressAvatarProps) => {
+  return (
+    <Blockies
+      data-testid="avatar"
+      seed={address}
+      scale={size}
+      size={8}
+      className={clsx("rounded-full", className)}
+    />
+  );
+};

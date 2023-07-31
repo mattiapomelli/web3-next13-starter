@@ -5,14 +5,12 @@ import {
 } from "@heroicons/react/24/outline";
 import { useDisconnect } from "wagmi";
 
+import { Address } from "@/components/address";
+import { AddressAvatar } from "@/components/address-avatar";
 import { Dropdown, DropdownContent, DropdownTrigger, DropdownItem } from "@/components/ui/dropdown";
 import { CHAIN } from "@/constants/chains";
 import { getAddressExplorerLink } from "@/constants/urls";
 import { copyToClipboard } from "@/utils/copy-to-clipboard";
-
-import { Address } from "../address";
-
-// import { AddressAvatar } from "../address-avatar";
 
 interface WalletDropdownProps {
   address: `0x${string}`;
@@ -25,7 +23,7 @@ export const WalletDropdown = ({ address }: WalletDropdownProps) => {
     <Dropdown className="inline-flex">
       <DropdownTrigger className="rounded-btn flex items-center gap-2 bg-base-200 px-4 py-1.5 hover:bg-base-300">
         <Address address={address} />
-        {/* <AddressAvatar address={address} /> */}
+        <AddressAvatar address={address} />
       </DropdownTrigger>
       <DropdownContent className="right-0 mt-2">
         <DropdownItem
