@@ -1,6 +1,7 @@
 "use client";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useSession } from "next-auth/react";
 import { useAccount, useSwitchNetwork } from "wagmi";
 
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { CHAIN } from "@/constants/chains";
 import { WalletDropdown } from "./wallet-dropdown";
 
 export const WalletStatus = () => {
+  const session = useSession();
   const { address } = useAccount();
 
   const { switchNetwork } = useSwitchNetwork();
@@ -16,7 +18,7 @@ export const WalletStatus = () => {
   return (
     <ConnectButton.Custom>
       {({ account, chain, openConnectModal }) => {
-        const connected = account && chain;
+        const connected = account && chain && session.status === "authenticated";
 
         if (chain?.unsupported) {
           return (
