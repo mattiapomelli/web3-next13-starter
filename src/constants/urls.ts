@@ -1,9 +1,9 @@
 import { hardhat, polygon, polygonMumbai } from "wagmi/chains";
 
 export const EXPLORER_URL: Record<number, string> = {
-  [polygon.id]: "https://polygonscan.com",
-  [polygonMumbai.id]: "https://mumbai.polygonscan.com",
   [hardhat.id]: "",
+  [polygonMumbai.id]: "https://mumbai.polygonscan.com",
+  [polygon.id]: "https://polygonscan.com",
 };
 
 export const getAddressExplorerLink = (chainId: number, address: string) => {
