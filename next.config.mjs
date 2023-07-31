@@ -7,7 +7,7 @@ const nextConfig = {
   webpack: (config) => {
     // Required for RainbowKit
     config.resolve.fallback = { fs: false, net: false, tls: false };
-    config.externals.push("pino-pretty", "lokijs");
+    config.externals.push("pino-pretty", "lokijs", "encoding");
 
     // Support SVGR
     config.module.rules.push({

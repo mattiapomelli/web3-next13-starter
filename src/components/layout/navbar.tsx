@@ -1,6 +1,7 @@
 import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+
+import { WalletStatus } from "../wallet/wallet-status";
 
 import { Container } from "./container";
 
@@ -11,7 +12,7 @@ export const Navbar = () => {
         <Logo />
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button>Connect</Button>
+          <WalletStatus />
         </div>
       </Container>
     </header>
