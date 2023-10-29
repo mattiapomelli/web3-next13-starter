@@ -1,4 +1,4 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
 
 import { Button } from "@/components/ui/button";
@@ -6,19 +6,13 @@ import { Button } from "@/components/ui/button";
 import { WalletDropdown } from "./wallet-dropdown";
 
 export const WalletStatus = () => {
-  const { address } = useAccount();
+  const { open } = useWeb3Modal();
 
-  return (
-    <ConnectButton.Custom>
-      {({ account, chain, openConnectModal }) => {
-        const connected = account && chain;
+  const { address, isConnected } = useAccount();
 
-        if (connected && address) {
-          return <WalletDropdown address={address} />;
-        }
+  if (isConnected && address) {
+    return <WalletDropdown address={address} />;
+  }
 
-        return <Button onClick={openConnectModal}>Connect Wallet</Button>;
-      }}
-    </ConnectButton.Custom>
-  );
+  return <Button onClick={() => open()}>Connect Wallet</Button>;
 };
