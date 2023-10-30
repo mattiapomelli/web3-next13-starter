@@ -16,7 +16,7 @@ const preview: Preview = {
     dataThemes: {
       defaultValue: {
         list: [
-          { name: "Light", dataTheme: "light", color: "#ffffff" },
+          { name: "Light", dataTheme: "light", color: "#F5F5F7" },
           { name: "Dark", dataTheme: "dark", color: "#000000" },
         ],
       },

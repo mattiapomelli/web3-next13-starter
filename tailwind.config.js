@@ -2,7 +2,7 @@ const konstaConfig = require("konsta/config");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = konstaConfig({
-  darkMode: ["class", '[data-theme="dark"]'],
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",

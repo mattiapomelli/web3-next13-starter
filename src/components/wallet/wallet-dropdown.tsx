@@ -21,7 +21,7 @@ export const WalletDropdown = ({ address }: WalletDropdownProps) => {
 
   return (
     <Dropdown className="inline-flex">
-      <DropdownTrigger className="rounded-btn flex h-full items-center gap-2 bg-base-200 px-4 py-1.5 hover:bg-base-300">
+      <DropdownTrigger className="rounded-btn bg-base-200 hover:bg-base-300 flex h-full items-center gap-2 px-4 py-1.5">
         <AddressAvatar address={address} className="sm:hidden" />
         <AddressAvatar address={address} className="hidden sm:inline-flex" />
         <Address address={address} className="hidden sm:block" />
