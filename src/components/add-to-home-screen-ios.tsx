@@ -1,22 +1,25 @@
 "use client";
 
-import { useAddToHomescreeniOS } from "@/hooks/use-add-to-home-screen-ios";
+import { Dialog, DialogButton } from "konsta/react";
 
-import { Button } from "./ui/button";
-import { Modal } from "./ui/modal";
+import { useAddToHomescreeniOS } from "@/hooks/use-add-to-home-screen-ios";
+import ShareIcon from "@/icons/share.svg";
 
 export function AddToHomeScreeniOS() {
   const [showPrompt, setShowPrompt] = useAddToHomescreeniOS();
 
   return (
-    <Modal open={showPrompt} onClose={() => setShowPrompt(false)} title="Install the app">
-      <div className="flex flex-col gap-4">
+    <Dialog
+      opened={showPrompt}
+      onBackdropClick={() => setShowPrompt(false)}
+      title="Install app"
+      content={
         <p>
-          This app can be installed and added to your home screen. Click on the Share button and
+          Click on the Share button <ShareIcon className="mb-1 inline-block h-4 w-4 shrink-0" /> and
           then &quot;Add to Home Screen&quot;
         </p>
-        <Button onClick={() => setShowPrompt(false)}>Ok</Button>
-      </div>
-    </Modal>
+      }
+      buttons={<DialogButton onClick={() => setShowPrompt(false)}>Ok</DialogButton>}
+    />
   );
 }
