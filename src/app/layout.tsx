@@ -44,6 +44,12 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     creator: "@myhandle",
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: siteConfig.name,
+    // startUpImage: [],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
