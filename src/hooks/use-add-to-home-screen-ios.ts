@@ -4,8 +4,6 @@ export const useAddToHomescreeniOS = () => {
   const [showPrompt, setShowPrompt] = useState(false);
 
   useEffect(() => {
-    setShowPrompt(true);
-
     const isIos = () => {
       const userAgent = window.navigator.userAgent.toLowerCase();
       return /iphone|ipad|ipod/.test(userAgent);
