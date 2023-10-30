@@ -8,8 +8,6 @@ import { Modal } from "./ui/modal";
 export function AddToHomeScreeniOS() {
   const [showPrompt, setShowPrompt] = useAddToHomescreeniOS();
 
-  console.log("Show prompt: ", showPrompt);
-
   return (
     <Modal open={showPrompt} onClose={() => setShowPrompt(false)} title="Install the app">
       <div className="flex flex-col gap-4">
