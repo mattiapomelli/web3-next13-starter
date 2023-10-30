@@ -1,30 +1,37 @@
 "use client";
 
-import { useAccount } from "wagmi";
-
-// import { Logo } from "@/components/logo";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
-
-import { ChainSwitch } from "../chain-switch";
-import { WalletStatus } from "../wallet/wallet-status";
+import { UserIcon } from "@heroicons/react/24/solid";
+import { Icon, Tabbar, TabbarLink } from "konsta/react";
+import { useRouter, usePathname } from "next/navigation";
 
 import { Container } from "./container";
 
 export const Navbar = () => {
-  const { isConnecting, isReconnecting } = useAccount();
+  const router = useRouter();
+  const pathname = usePathname();
 
   return (
-    <header className="flex h-20 items-center">
-      <Container className="flex w-full items-center justify-between">
-        {/* <Logo className="hidden sm:block" /> */}
-        {!isReconnecting && !isConnecting && (
-          <div className="flex items-center gap-4 duration-100 animate-in fade-in">
-            <ThemeToggle />
-            <ChainSwitch />
-            <WalletStatus />
-          </div>
-        )}
+    <Tabbar className="fixed bottom-0 left-0 h-24 pt-6">
+      <Container className="relative flex h-11 w-full items-center justify-between overflow-hidden pr-2-safe pl-2-safe">
+        <TabbarLink
+          active={pathname === "/"}
+          onClick={() => router.push("/")}
+          icon={<Icon ios={<UserIcon className="mb-2 h-5 w-5" />} />}
+          label={"Account"}
+        />
+        <TabbarLink
+          active={pathname === "/page1"}
+          onClick={() => router.push("/page1")}
+          icon={<Icon ios={<UserIcon className="mb-2 h-5 w-5" />} />}
+          label={"Other page 1"}
+        />
+        <TabbarLink
+          active={pathname === "/page2"}
+          onClick={() => router.push("/page2")}
+          icon={<Icon ios={<UserIcon className="mb-2 h-5 w-5" />} />}
+          label={"Other page 2"}
+        />
       </Container>
-    </header>
+    </Tabbar>
   );
 };

@@ -3,9 +3,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { AddToHomeScreen } from "@/components/add-to-home-screen";
 import { AddToHomeScreeniOS } from "@/components/add-to-home-screen-ios";
-// import { Container } from "@/components/layout/container";
-// import { Navbar } from "@/components/layout/navbar";
-// import { Toaster } from "@/components/ui/toast";
+import { Layout } from "@/components/layout/layout";
 
 import { Providers } from "./providers";
 
@@ -116,14 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <AddToHomeScreeniOS />
           <AddToHomeScreen />
-          {children}
-          {/* <div className="flex min-h-screen flex-col bg-gray-200">
-            <Navbar />
-            <main className="flex-1 pb-20">
-              <Container>{children}</Container>
-            </main>
-          </div>
-          <Toaster /> */}
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>
