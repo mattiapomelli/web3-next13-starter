@@ -1,6 +1,8 @@
 import "./globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 
+import { AddToHomeScreen } from "@/components/add-to-home-screen";
+import { AddToHomeScreeniOS } from "@/components/add-to-home-screen-ios";
 import { Container } from "@/components/layout/container";
 import { Navbar } from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/toast";
@@ -112,6 +114,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Providers>
+          <AddToHomeScreeniOS />
+          <AddToHomeScreen />
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1 pb-20">
