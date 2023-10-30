@@ -44,11 +44,16 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     creator: "@myhandle",
   },
+  manifest: "/manifest.json",
+  themeColor: "#ffffff",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: siteConfig.name,
     // startUpImage: [],
+  },
+  formatDetection: {
+    telephone: false,
   },
 };
 
