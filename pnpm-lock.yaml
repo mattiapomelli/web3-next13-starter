@@ -38,6 +38,9 @@ dependencies:
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
+  konsta:
+    specifier: ^3.1.1
+    version: 3.1.1
   next:
     specifier: 14.0.0
     version: 14.0.0(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
@@ -9951,6 +9954,11 @@ packages:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
     engines: {node: '>= 8'}
     dev: true
+
+  /konsta@3.1.1:
+    resolution: {integrity: sha512-xiHK0kyq8WUhvNfxE4mAHrzhK6hZfWonSpQxm4lXFdsFszA5UkB3k5EpmGozBZuQcgiWKnQ7HO50Xr/L8vhGQw==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /language-subtag-registry@0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}

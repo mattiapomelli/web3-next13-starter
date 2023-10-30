@@ -1,18 +1,13 @@
 import "./globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 
-import { Inter } from "next/font/google";
-
 import { Container } from "@/components/layout/container";
-import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/toast";
 
 import { Providers } from "./providers";
 
 import type { Metadata } from "next";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const siteConfig = {
   name: "Web3 Frontend Starter",
@@ -115,14 +110,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="apple-touch-startup-image"
         />
       </head>
-      <body className={inter.className}>
+      <body>
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1 pb-20">
               <Container>{children}</Container>
             </main>
-            <Footer />
           </div>
           <Toaster />
         </Providers>
