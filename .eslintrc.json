@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended", "plugin:storybook/recommended"],
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
   "plugins": ["import", "@typescript-eslint", "unicorn", "tailwindcss"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["error"],
@@ -25,7 +25,7 @@
   "settings": {
     /* Support tailwind rules inside clsx */
     "tailwindcss": {
-      "callees": ["clsx", "cva"],
+      "callees": ["clsx", "cva", "cn"],
       "config": "tailwind.config.js"
     }
   },

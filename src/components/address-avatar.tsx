@@ -1,5 +1,6 @@
-import { clsx } from "clsx";
 import Blockies from "react-blockies";
+
+import { cn } from "@/lib/utils";
 
 interface AddressAvatarProps {
   address: `0x${string}`;
@@ -14,7 +15,7 @@ export const AddressAvatar = ({ address, size = 2.4, className }: AddressAvatarP
       seed={address}
       scale={size}
       size={8}
-      className={clsx("rounded-full", className)}
+      className={cn("rounded-full", className)}
     />
   );
 };

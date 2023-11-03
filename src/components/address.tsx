@@ -1,5 +1,6 @@
-import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+
+import { cn } from "@/lib/utils";
 
 interface AddressProps {
   address: `0x${string}`;
@@ -11,5 +12,5 @@ const formatAddress = (address: string) => {
 };
 
 export const Address = ({ address, className }: AddressProps) => {
-  return <span className={twMerge(clsx("font-medium", className))}>{formatAddress(address)}</span>;
+  return <span className={twMerge(cn("font-medium", className))}>{formatAddress(address)}</span>;
 };
