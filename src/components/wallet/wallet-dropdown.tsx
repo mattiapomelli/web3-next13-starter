@@ -7,9 +7,14 @@ import { useChainId, useDisconnect } from "wagmi";
 
 import { Address } from "@/components/address";
 import { AddressAvatar } from "@/components/address-avatar";
-import { Dropdown, DropdownContent, DropdownTrigger, DropdownItem } from "@/components/ui/dropdown";
-import { getAddressExplorerLink } from "@/constants/urls";
-import { copyToClipboard } from "@/utils/copy-to-clipboard";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import { getAddressExplorerLink } from "@/config/urls";
+import { copyToClipboard } from "@/lib/utils";
 
 interface WalletDropdownProps {
   address: `0x${string}`;
@@ -20,36 +25,33 @@ export const WalletDropdown = ({ address }: WalletDropdownProps) => {
   const { disconnect } = useDisconnect();
 
   return (
-    <Dropdown className="inline-flex">
-      <DropdownTrigger className="rounded-btn flex h-full items-center gap-2 bg-base-200 px-4 py-1.5 hover:bg-base-300">
+    <DropdownMenu>
+      <DropdownMenuTrigger className="flex h-full items-center gap-2 rounded-lg px-4 py-1.5">
         <AddressAvatar address={address} className="sm:hidden" />
         <AddressAvatar address={address} className="hidden sm:inline-flex" />
         <Address address={address} className="hidden sm:block" />
-      </DropdownTrigger>
-      <DropdownContent className="right-0 mt-3">
-        <DropdownItem
-          onClick={() => copyToClipboard(address)}
-          as="button"
-          className="gap-2 text-sm"
-        >
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem onClick={() => copyToClipboard(address)} className="flex gap-2">
           <DocumentDuplicateIcon className="h-5 w-5" />
           Copy address
-        </DropdownItem>
-        <DropdownItem
-          href={getAddressExplorerLink(chainId, address)}
-          target="_blank"
-          rel="noopener noreferrer"
-          as="a"
-          className="gap-2 text-sm"
-        >
-          <ArrowTopRightOnSquareIcon className="h-5 w-5" />
-          See in explorer
-        </DropdownItem>
-        <DropdownItem as="button" onClick={() => disconnect()} className="gap-2 text-sm">
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <a
+            href={getAddressExplorerLink(chainId, address)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex gap-2"
+          >
+            <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+            See in explorer
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => disconnect()} className="flex gap-2">
           <ArrowRightOnRectangleIcon className="h-5 w-5" />
           Disconnect
-        </DropdownItem>
-      </DropdownContent>
-    </Dropdown>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };

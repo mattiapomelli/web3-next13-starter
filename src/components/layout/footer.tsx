@@ -1,15 +1,19 @@
-import { Container } from "@/components/layout/container";
+import { Command } from "lucide-react";
+import * as React from "react";
 
-export const Footer = () => {
+import { ThemeToggle } from "@/components/theme-toggle";
+import { cn } from "@/lib/utils";
+
+export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <footer>
-      <Container>
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-base-300/50 py-6 text-sm">
-          <div className="shrink-0 md:flex-1">© 2023, My dApp</div>
-          <p className="order-1 basis-full text-center md:order-none md:basis-auto">My dApp</p>
-          <div className="flex items-center justify-end md:flex-1">Contact</div>
+    <footer className={cn(className)}>
+      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+          <Command />
+          <p className="text-center text-sm leading-loose md:text-left">Visualy</p>
         </div>
-      </Container>
+        <ThemeToggle />
+      </div>
     </footer>
   );
-};
+}

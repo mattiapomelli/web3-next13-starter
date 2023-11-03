@@ -3,17 +3,18 @@
 import { useAddToHomescreen } from "@/hooks/use-add-to-home-screen";
 
 import { Button } from "./ui/button";
-import { Modal } from "./ui/modal";
+import { Dialog } from "./ui/dialog";
 
 export const AddToHomeScreen = () => {
   const { showPrompt, setShowPrompt, promptToInstall } = useAddToHomescreen();
 
   return (
-    <Modal open={showPrompt} onClose={() => setShowPrompt(false)} title="Install the app">
+    <Dialog open={showPrompt} onOpenChange={setShowPrompt}>
       <div className="flex flex-col gap-4">
+        <h3>Install the app</h3>
         <p>This app can be installed and added to your home screen.</p>
         <Button onClick={promptToInstall}>Add to home screen</Button>
       </div>
-    </Modal>
+    </Dialog>
   );
 };

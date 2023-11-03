@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { WagmiConfig } from "wagmi";
 
-import { CHAINS } from "@/constants/chains";
+import { CHAINS } from "@/config/chains";
 import { env } from "@/env.mjs";
 
 const projectId = env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
