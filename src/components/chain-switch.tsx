@@ -1,8 +1,9 @@
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { Chain, useNetwork } from "wagmi";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { CHAIN_ICON } from "@/config/chains";
+import { cn } from "@/lib/utils";
 
 interface ChainIconProps {
   chain: Chain;
@@ -21,12 +22,12 @@ export const ChainSwitch = () => {
   return (
     <button onClick={() => open({ view: "Networks" })}>
       {!chain || chain.unsupported ? (
-        <Button size="sm" className="bg-red-400">
+        <Button size="sm" className="bg-red-400 hover:bg-red-500">
           Unsupported network
         </Button>
       ) : (
-        <span className="flex items-center gap-3 rounded-lg px-4 py-1.5 font-medium">
-          <ChainIcon chain={chain} className="h-6 w-6" />
+        <span className={cn(buttonVariants({ variant: "secondary" }), "px-4 gap-2")}>
+          <ChainIcon chain={chain} className="h-4 w-4" />
           <span className="hidden sm:block">{chain?.name}</span>
         </span>
       )}
