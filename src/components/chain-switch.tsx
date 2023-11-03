@@ -21,7 +21,7 @@ export const ChainSwitch = () => {
   return (
     <button onClick={() => open({ view: "Networks" })}>
       {!chain || chain.unsupported ? (
-        <Button size="sm" color="error">
+        <Button size="sm" className="bg-red-400">
           Unsupported network
         </Button>
       ) : (

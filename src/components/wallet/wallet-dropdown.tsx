@@ -1,8 +1,4 @@
-import {
-  ArrowRightOnRectangleIcon,
-  ArrowTopRightOnSquareIcon,
-  DocumentDuplicateIcon,
-} from "@heroicons/react/24/outline";
+import { CopyIcon, ExternalLinkIcon, LogOutIcon } from "lucide-react";
 import { useChainId, useDisconnect } from "wagmi";
 
 import { Address } from "@/components/address";
@@ -32,23 +28,29 @@ export const WalletDropdown = ({ address }: WalletDropdownProps) => {
         <Address address={address} className="hidden sm:block" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem onClick={() => copyToClipboard(address)} className="flex gap-2">
-          <DocumentDuplicateIcon className="h-5 w-5" />
+        <DropdownMenuItem
+          onClick={() => copyToClipboard(address)}
+          className="flex cursor-pointer gap-2 px-4 py-2"
+        >
+          <CopyIcon className="h-4 w-4" />
           Copy address
         </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem asChild>
           <a
             href={getAddressExplorerLink(chainId, address)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex gap-2"
+            className="flex cursor-pointer gap-2 px-4 py-2"
           >
-            <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+            <ExternalLinkIcon className="h-4 w-4" />
             See in explorer
           </a>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => disconnect()} className="flex gap-2">
-          <ArrowRightOnRectangleIcon className="h-5 w-5" />
+        <DropdownMenuItem
+          onClick={() => disconnect()}
+          className="flex cursor-pointer gap-2 px-4 py-2"
+        >
+          <LogOutIcon className="h-4 w-4" />
           Disconnect
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -2,7 +2,7 @@
 
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
 import { ThemeProvider } from "next-themes";
-import { ThemeProviderProps } from "next-themes/dist/types";
+import { ReactNode } from "react";
 import { WagmiConfig } from "wagmi";
 
 import { CHAINS } from "@/config/chains";
@@ -21,10 +21,12 @@ const wagmiConfig = defaultWagmiConfig({ chains: CHAINS, projectId, metadata });
 
 createWeb3Modal({ wagmiConfig, projectId, chains: CHAINS });
 
-export function Providers({ children, ...props }: ThemeProviderProps) {
+export function Providers({ children }: { children: ReactNode }) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <ThemeProvider {...props}>{children}</ThemeProvider>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {children}
+      </ThemeProvider>
     </WagmiConfig>
   );
 }
